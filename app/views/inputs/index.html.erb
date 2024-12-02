@@ -1,0 +1,15 @@
+<h1>Hello!</h1>
+
+<%= form_with url: send_message_path, method: :post, local: false, data: { turbo: true } do |form| %>
+  <div>
+    <p>
+      <%= form.label :message, "Send your message:" %>
+    <p>
+    <%= form.text_area :message, rows: 5, columns: 50, placeholder: "How can I help you today?" %>
+    <%= form.submit "Send" %>
+  <div>
+<% end %>
+
+<div id="response_area"></div>
+
+
