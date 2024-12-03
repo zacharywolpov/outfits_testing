@@ -15,10 +15,12 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port ENV.fetch("PORT") { 3000 }
-
-bind "unix:///var/run/puma/my_app.sock"
-pidfile "/var/run/puma/my_app.sock"
+if ENV.fetch("RAILS_ENV", "development") == "development"
+    port ENV.fetch("PORT") { 3000 }
+  else
+    bind "unix:///var/run/puma/my_app.sock"
+    pidfile "/var/run/puma/my_app.sock"
+  end
 
 # Specifies the `environment` that Puma will run in.
 #
