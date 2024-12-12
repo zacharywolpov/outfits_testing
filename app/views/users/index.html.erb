@@ -1,0 +1,13 @@
+<h1> Users </h1>
+
+<body><% @users.length() %></body>
+
+<div>
+<ol>
+  <% @users.each do |user| %>
+    <body><li><%= link_to user.name, user_input_path(id: user.id) %><li></body>
+  <% end %>
+</ol>
+</div>
+
+

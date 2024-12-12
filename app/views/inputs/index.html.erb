@@ -1,4 +1,4 @@
-<h1>Hello!</h1>
+<h1>Hello, <%= @user.name %>!</h1>
 
 <%= form_with url: send_message_path, method: :post, local: false, data: { turbo: true } do |form| %>
   <div>
@@ -9,6 +9,25 @@
     <%= form.submit "Send" %>
   <div>
 <% end %>
+
+<%= form_with model: @user, local: true, url: user_path(@user) do |form| %>
+  <div>
+    <%= form.label :closet, "Upload Your Closet" %>
+    <%= form.file_field :closet %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= form_with model: @user, local: true, url: user_path(@user) do |form| %>
+  <div>
+    <%= form.label :outfits_history, "Upload Your Outfits History" %>
+    <%= form.file_field :outfits_history %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<div>
+  <%= button_to 'Home', users_path, method: :get%>
+</div>
 
 <div id="response_area"></div>
 
