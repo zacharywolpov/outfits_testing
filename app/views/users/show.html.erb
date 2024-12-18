@@ -1,0 +1,20 @@
+<h1>Hello, <%= @user.name %>!</h1>
+
+<h3>Your outfits history: <%= @user.outfits_history.attached? ?  "ALREADY UPLOADED" : "TO BE UPLOADED" %></h3>
+<div>
+  <%= button_to 'DELETE', delete_outfits_history_path, method: :delete%>
+</div>
+
+<h3>Your closet: <%= @user.closet.attached? ? "ALREADY UPLOADED" : "TO BE UPLOADED" %></h3>
+<div>
+  <%= button_to 'DELETE', delete_closet_path, method: :delete%>
+</div>
+<br>
+<div>
+  <%= button_to 'Get Outfit Suggestions!', user_input_path(id: @user.id), method: :get%>
+</div>
+<br>
+<div>
+  <%= button_to 'Log out', logout_path, method: :delete%>
+</div>
+

@@ -42,6 +42,8 @@ gem 'roo'
 # Amazon s3
 gem "aws-sdk-s3", "~> 1.114"
 
+gem 'bcrypt'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
